@@ -27,8 +27,52 @@ Recordatorios automáticos, reportes, dashboard, pagos en línea e historial de 
 
 La atribución de trabajo se respalda con cuentas autenticadas, commits y revisiones reales. El proyecto utiliza asistencia de IA; cada integrante debe ejecutar, revisar y poder explicar sus aportes.
 
-## Estado
+## Ejecutar
 
-Configuración inicial. La versión estable se liberará cuando las funcionalidades estén verificadas y la revisión colaborativa se haya completado. No se considera una aprobación de otro integrante un comentario escrito por el autor de la pull request.
+Requiere **JDK 17 o superior**. No necesita Maven, base de datos externa ni librerías de terceros.
+
+```powershell
+# Windows PowerShell, dentro del repositorio:
+.\build.ps1 -Run
+```
+
+```bash
+# Linux o macOS:
+bash build.sh
+java -jar build/sistema-reservas.jar
+```
+
+La compilación ejecuta 19 pruebas antes de generar `build/sistema-reservas.jar`. También puede abrirse un JAR descargado con `java -jar sistema-reservas.jar`.
+
+Los datos se guardan en `data/reservas.properties`, relativo al directorio desde el que se ejecuta Java. Para elegir una ubicación fija:
+
+```powershell
+java '-Dreservas.data=C:\ReservasSimple\datos' -jar build/sistema-reservas.jar
+```
+
+## Uso
+
+1. En **Clientes**, registrar nombre, teléfono y correo opcional. Seleccionar una fila y pulsar **Modificar cliente seleccionado** para editar.
+2. En **Servicios**, registrar nombre, precio en soles y duración de 5 a 480 minutos.
+3. En **Reservas**, elegir cliente y servicio e indicar fecha `AAAA-MM-DD` y hora `HH:mm` de Lima.
+4. Consultar y filtrar las listas. Para cancelar, seleccionar la reserva y confirmar la acción.
+
+## Decisiones y límites del MVP
+
+- Aplicación de escritorio para un operador. Agenda única: una atención a la vez, sin horarios superpuestos. No existe aún gestión de empleados o recursos.
+- Precio positivo con hasta dos decimales; se conserva el precio y duración de la reserva.
+- Una cancelación cambia el estado y libera el horario; conserva el registro.
+- Persistencia local mediante archivo de propiedades. La aplicación bloquea una segunda instancia sobre la misma carpeta de datos. No es un servidor multiusuario.
+- Para respaldo, cerrar la aplicación y copiar `data/reservas.properties` a una ubicación segura. No subir datos reales al repositorio.
+
+## Estado y enlaces
+
+- [Tablero de trabajo](https://github.com/users/Alberto-Ramirez19/projects/2).
+- [Actividades](https://github.com/Alberto-Ramirez19/sistema-reservas-java/issues).
+- [Pruebas automáticas](https://github.com/Alberto-Ramirez19/sistema-reservas-java/actions).
+- [Matriz de trazabilidad](docs/trazabilidad.md).
+- [Guía para continuar con Juan](docs/continuacion-juan.md).
+
+La implementación está en la rama `feature/mvp-reservas`. La versión estable se liberará después de la revisión y participación real de Juan. No se considera una aprobación de otro integrante un comentario escrito por el autor de la pull request.
 
 Consulta [CONTRIBUTING.md](CONTRIBUTING.md) para el procedimiento del equipo.
