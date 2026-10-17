@@ -1,0 +1,30 @@
+name: Actividad de desarrollo
+description: Requerimiento, responsable y criterios de aceptación
+title: "[RF-XX] "
+body:
+  - type: textarea
+    id: requirement
+    attributes:
+      label: Requerimiento y alcance
+      description: Indicar el código RF, la versión y el resultado esperado.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación
+      value: "- [ ] Resultado comprobable\n- [ ] Pruebas ejecutadas\n- [ ] Pull request revisada e integrada"
+    validations:
+      required: true
+  - type: input
+    id: owner
+    attributes:
+      label: Responsable
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Prioridad
+      options:
+        - Alta
+        - Media
+        - Baja
