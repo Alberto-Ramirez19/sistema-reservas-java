@@ -1,0 +1,17 @@
+A  .github/workflows/java.yml
+UU CONTRIBUTING.md
+M  README.md
+A  build.ps1
+A  build.sh
+A  docs/conflicto.md
+A  docs/continuacion-juan.md
+A  docs/pruebas-manuales.md
+A  docs/requerimientos.md
+A  src/main/java/reservas/Almacen.java
+A  src/main/java/reservas/Cliente.java
+A  src/main/java/reservas/GestorReservas.java
+A  src/main/java/reservas/Main.java
+A  src/main/java/reservas/Reserva.java
+A  src/main/java/reservas/ReservasPanel.java
+A  src/main/java/reservas/Servicio.java
+A  src/test/java/reservas/Pruebas.java

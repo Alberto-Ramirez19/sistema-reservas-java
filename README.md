@@ -23,9 +23,9 @@ Recordatorios automáticos, reportes, dashboard, pagos en línea e historial de 
 | Integrante | Cuenta | Responsabilidad inicial |
 |---|---|---|
 | Alberto Joel Ramirez | Alberto-Ramirez19 | Configuración, implementación del MVP, propuesta de cambios y correcciones |
-| Juan Cesar Retuerto | Pendiente de confirmar | Revisión del MVP, ampliación de pruebas, validación e integración |
+| Juan Cesar Retuerto | U23208480 | Revisión del MVP, ampliación de pruebas, validación e integración |
 
-La atribución de trabajo se respalda con cuentas autenticadas, commits y revisiones reales. El proyecto utiliza asistencia de IA; cada integrante debe ejecutar, revisar y poder explicar sus aportes.
+La atribución de trabajo se respalda con cuentas autenticadas, commits, pull requests y revisiones registradas. Cada integrante debe poder explicar las decisiones y los aportes asociados a su cuenta.
 
 ## Ejecutar
 
@@ -42,7 +42,7 @@ bash build.sh
 java -jar build/sistema-reservas.jar
 ```
 
-La compilación ejecuta 19 pruebas antes de generar `build/sistema-reservas.jar`. También puede abrirse un JAR descargado con `java -jar sistema-reservas.jar`.
+La compilación ejecuta 22 pruebas antes de generar `build/sistema-reservas.jar`. También puede abrirse un JAR descargado con `java -jar sistema-reservas.jar`.
 
 Los datos se guardan en `data/reservas.properties`, relativo al directorio desde el que se ejecuta Java. Para elegir una ubicación fija:
 
@@ -73,6 +73,8 @@ java '-Dreservas.data=C:\ReservasSimple\datos' -jar build/sistema-reservas.jar
 - [Matriz de trazabilidad](docs/trazabilidad.md).
 - [Guía para continuar con Juan](docs/continuacion-juan.md).
 
-La implementación está en la rama `feature/mvp-reservas`. La versión estable se liberará después de la revisión y participación real de Juan. No se considera una aprobación de otro integrante un comentario escrito por el autor de la pull request.
+La [versión estable v1.0.0](https://github.com/Alberto-Ramirez19/sistema-reservas-java/releases/tag/v1.0.0) identifica el código integrado y verificado. Se conservan las ramas de desarrollo y las PR #18 a #21 para comprobar las contribuciones.
+
+Consulta la [guía del proyecto y la sustentación](docs/guia-proyecto.md), los [resultados de validación](docs/validacion.md) y la [resolución del conflicto](docs/conflicto.md).
 
 Consulta [CONTRIBUTING.md](CONTRIBUTING.md) para el procedimiento del equipo.

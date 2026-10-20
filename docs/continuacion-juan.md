@@ -1,50 +1,19 @@
-# Continuación con Juan Cesar Retuerto
+# Aportes y revisión de Juan Cesar Retuerto
 
-## Estado de la colaboración
+Cuenta autenticada: `U23208480`. La invitación al repositorio fue aceptada el 20 de octubre de 2026.
 
-La primera etapa se realizó con la cuenta autenticada `Alberto-Ramirez19`, con asistencia de IA. Juan tiene previstas las issues #8, #10 y #11. Su participación solo podrá registrarse cuando acepte la invitación y trabaje desde su propia cuenta.
+## Pruebas de aceptación - issue #8
 
-## 1. Validar el sistema y aportar pruebas (#8)
+La rama `test/8-validacion-juan` aporta el commit `93e57a8` y la [PR #19](https://github.com/Alberto-Ramirez19/sistema-reservas-java/pull/19). Se añadieron tres escenarios y se amplió la comprobación de persistencia. Alberto registró la aprobación y la integración en `feature/mvp-reservas` mediante `0f591a0`.
 
-1. Aceptar la invitación del repositorio desde GitHub.
-2. Clonar el repositorio y ejecutar `git switch feature/mvp-reservas`.
-3. Ejecutar `./build.ps1 -Run` (Windows) o `bash build.sh` (Linux/macOS).
-4. Probar altas, modificación de clientes, consultas y cancelación. Anotar resultados reales.
-5. Crear `test/8-validacion-juan` desde `feature/mvp-reservas`.
-6. Añadir una prueba útil, por ejemplo un servicio largo que englobe totalmente otra reserva, o persistencia de la modificación del cliente tras reiniciar.
-7. Hacer un commit con su identidad real y `Refs #8`. Abrir PR hacia `feature/mvp-reservas` para que Alberto revise ese aporte.
-8. Revisar la PR principal de Alberto: dejar una observación concreta, solicitar cambios si corresponde y aprobar solo tras verificarla. GitHub no permite al autor aprobar su propia PR.
+## Revisión del MVP - PR #18
 
-## 2. Ejecutar el conflicto planificado (#10)
+La revisión señaló el archivo de trazabilidad ausente, el conteo anterior de pruebas y la cuenta aún pendiente en README. Los cambios de documentación corrigen esas observaciones antes de la integración final.
 
-Se preparará la rama `docs/10-agenda-alberto` desde el `main` inicial. En ella Alberto modifica el título `## Datos` de CONTRIBUTING.md.
+## Conflicto planificado - issue #10
 
-Juan debe crear su rama desde el mismo commit base, antes de integrar la de Alberto:
+El commit `b1a41d0` cambia el encabezado de respaldo desde el mismo commit base usado por Alberto. Git detectó un conflicto real en CONTRIBUTING.md. La resolución se registró desde U23208480 en el commit de merge `933a808`, conservando ambas propuestas. Véanse la [PR #21](https://github.com/Alberto-Ramirez19/sistema-reservas-java/pull/21) y [conflicto.md](conflicto.md).
 
-```bash
-git fetch origin
-git switch -c docs/10-agenda-juan 5e576f3
-```
+## Integración y versión - issue #11
 
-Cambiar `## Datos` por `## Respaldo y recuperación de datos`, guardar y hacer commit propio. Después integrar la rama de Alberto:
-
-```bash
-git merge origin/docs/10-agenda-alberto
-```
-
-Git deberá detectar el cambio incompatible sobre la misma línea. Capturar `git status`, los marcadores y los dos commits. Resolver con un título acordado, por ejemplo `## Protección, respaldo y recuperación de datos`, y ejecutar `git add CONTRIBUTING.md` y `git commit`. Documentar lo sucedido en `docs/conflicto.md`.
-
-Este es un ejercicio planificado de conflicto real entre ramas; no debe presentarse como un incidente espontáneo. No cambiar autor o correo para aparentar contribuciones de otra persona.
-
-## 3. Integrar y liberar (#11)
-
-1. Completar la revisión cruzada, resolver conversaciones y comprobar Java CI.
-2. Integrar mediante merge commit. Actualizar el tablero al estado real.
-3. Ejecutar las pruebas sobre `main` integrado.
-4. Crear etiqueta anotada `v1.0.0` sobre ese commit y publicarla.
-5. Crear la release estable con el JAR, funcionalidades, limitaciones y pendientes. La candidata `v1.0.0-rc.1`, si existe, no reemplaza esta release.
-6. Actualizar el PDF con capturas de los aportes de Juan, aprobación, merge, conflicto y release estable.
-
-## Datos del informe por completar
-
-Institución, curso, docente y fecha de entrega no fueron confirmados. Conservar los campos pendientes hasta contar con esos datos.
+La PR #18 es el punto de revisión del MVP antes de `main`. La etiqueta anotada `v1.0.0` y la release identifican el código verificado, el JAR y el alcance funcional. Los resultados se comprueban en Actions y en el historial de las pull requests.

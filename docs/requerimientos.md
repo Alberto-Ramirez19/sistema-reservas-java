@@ -24,4 +24,4 @@ No se permiten nombres vacíos, referencias a clientes o servicios inexistentes,
 
 ## Requisitos de proceso
 
-Repositorio compartido, tablero con cinco estados, ramas por cambio, commits identificables, revisión cruzada, conflicto entre ramas documentado, etiqueta y release, matriz de trazabilidad. La asistencia de IA no sustituye la participación verificable de los dos integrantes.
+Repositorio compartido, tablero con cinco estados, ramas por cambio, commits identificables, revisión cruzada, conflicto entre ramas documentado, etiqueta y release, matriz de trazabilidad.
