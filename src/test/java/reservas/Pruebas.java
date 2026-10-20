@@ -29,6 +29,11 @@ public final class Pruebas {
             igual("Ana Pérez", g.cliente(c.id()).nombre()); igual(1, g.clientes().size());
         });
         caso("RF-02 rechazar cliente inexistente", g -> rechaza(() -> g.modificarCliente(999, "Ana", "999111222", "")));
+        caso("RF-02 una modificación inválida conserva el cliente original", g -> {
+            Cliente original = g.registrarCliente("Ana", "999111222", "ana@example.com");
+            rechaza(() -> g.modificarCliente(original.id(), " ", "999222333", ""));
+            igual(original, g.cliente(original.id())); igual(1, g.clientes().size());
+        });
         caso("RF-04 precio y duración", g -> {
             Servicio s = g.registrarServicio("Corte", new BigDecimal("35.50"), 30);
             igual(new BigDecimal("35.50"), s.precio()); igual(30, s.duracionMinutos());
@@ -63,6 +68,20 @@ public final class Pruebas {
         caso("RF-05 permitir reservas consecutivas", g -> {
             preparar(g); g.registrarReserva(1, 1, INICIO); g.registrarReserva(1, 1, INICIO.plusMinutes(30)); igual(2, g.reservas().size());
         });
+        caso("RF-05 rechazar una reserva larga que engloba otra", g -> {
+            preparar(g);
+            Servicio largo = g.registrarServicio("Asesoría extendida", new BigDecimal("120.00"), 120);
+            g.registrarReserva(1, 1, INICIO.plusMinutes(30));
+            rechaza(() -> g.registrarReserva(1, largo.id(), INICIO));
+            igual(1, g.reservas().size());
+        });
+        caso("RF-05 rechazar una reserva contenida en otra larga", g -> {
+            preparar(g);
+            Servicio largo = g.registrarServicio("Asesoría extendida", new BigDecimal("120.00"), 120);
+            g.registrarReserva(1, largo.id(), INICIO);
+            rechaza(() -> g.registrarReserva(1, 1, INICIO.plusMinutes(30)));
+            igual(1, g.reservas().size());
+        });
         caso("RF-06 cancelar libera el horario sin borrar", g -> {
             preparar(g); Reserva r = g.registrarReserva(1, 1, INICIO); g.cancelarReserva(r.id());
             g.registrarReserva(1, 1, INICIO); igual(2, g.reservas().size()); igual(Reserva.Estado.CANCELADA, g.reservas().get(0).estado());
@@ -88,14 +107,17 @@ public final class Pruebas {
         try {
             try (Almacen a = new Almacen(p)) {
                 GestorReservas g = new GestorReservas(a, RELOJ); preparar(g); g.registrarReserva(1, 1, INICIO); g.cancelarReserva(1);
+                g.modificarCliente(1, "Ana Pérez Actualizada", "999222333", "actualizada@example.com");
             }
             try (Almacen a = new Almacen(p)) {
                 GestorReservas g = new GestorReservas(a, RELOJ);
-                igual("Ana Pérez", g.cliente(1).nombre()); igual(new BigDecimal("50.00"), g.servicio(1).precio());
+                igual("Ana Pérez Actualizada", g.cliente(1).nombre());
+                igual("999222333", g.cliente(1).telefono()); igual("actualizada@example.com", g.cliente(1).correo());
+                igual(new BigDecimal("50.00"), g.servicio(1).precio());
                 igual(Reserva.Estado.CANCELADA, g.reservas().get(0).estado());
                 igual(2, g.registrarCliente("Luis", "999888777", "").id());
             }
-            aprobado("Persistencia de clientes, servicios, cancelaciones e IDs al reiniciar");
+            aprobado("Persistencia de la modificación del cliente, servicios, cancelaciones e IDs al reiniciar");
         } finally { limpiar(p); }
     }
     private static void bloqueo() throws Exception {
