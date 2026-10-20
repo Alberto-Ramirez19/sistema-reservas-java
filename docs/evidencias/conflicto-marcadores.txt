@@ -1,0 +1,29 @@
+# Acuerdo de trabajo
+
+1. Seleccionar una issue, confirmar el responsable y moverla a **Seleccionadas**.
+2. Actualizar `main` y crear una rama con el número de la issue. Moverla a **En ejecución**.
+3. Implementar cambios pequeños y verificables. Incluir `Refs #N` en el commit.
+4. Ejecutar las pruebas y abrir una pull request con `Closes #N`, resultados de prueba y alcance. Mover la issue a **En revisión**.
+5. El otro integrante revisa el código y prueba los criterios. Registra observaciones concretas y aprueba únicamente tras resolverlas.
+6. Integrar con **Create a merge commit** para conservar las contribuciones. Mover la issue a **Terminadas** tras confirmar la integración.
+7. Mantener las ramas de la evaluación hasta entregar las evidencias.
+
+## Definición de terminado
+
+Criterios de aceptación cumplidos, pruebas aprobadas, revisión del compañero registrada, cambios integrados y trazabilidad actualizada. El código local terminado no equivale a una actividad integrada.
+
+## Conflictos
+
+Si dos ramas cambian la misma línea, conservar las dos ramas, guardar la salida de Git con `CONFLICT`, acordar la solución, eliminar los marcadores, ejecutar las pruebas y registrar un commit de resolución. Documentar archivo, ramas, commits, causa y decisión. Un ejercicio planificado debe identificarse como tal; no se describe como un incidente espontáneo.
+
+## Release
+
+Crear `v1.0.0` sobre el commit integrado y verificado. Publicar en GitHub Releases las funcionalidades incluidas, limitaciones, pendientes y el JAR. La etiqueta debe apuntar al mismo commit que fue probado.
+
+<<<<<<< HEAD
+## Respaldo y recuperación de datos
+=======
+## Protección de los datos locales
+>>>>>>> origin/feature/mvp-reservas
+
+Usar solo datos ficticios en pruebas y capturas. La carpeta `data/` es local y no se incluye en Git.

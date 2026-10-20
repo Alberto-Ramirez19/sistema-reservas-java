@@ -20,6 +20,6 @@ Si dos ramas cambian la misma línea, conservar las dos ramas, guardar la salida
 
 Crear `v1.0.0` sobre el commit integrado y verificado. Publicar en GitHub Releases las funcionalidades incluidas, limitaciones, pendientes y el JAR. La etiqueta debe apuntar al mismo commit que fue probado.
 
-## Datos
+## Protección, respaldo y recuperación de datos
 
 Usar solo datos ficticios en pruebas y capturas. La carpeta `data/` es local y no se incluye en Git.
