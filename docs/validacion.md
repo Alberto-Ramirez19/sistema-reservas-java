@@ -14,4 +14,4 @@ Resultado de `./build.ps1` o `bash build.sh`: **22 pruebas aprobadas; 0 fallidas
 | Protección | Consultas inmutables, bloqueo de una segunda instancia, formato desconocido conservado |
 | Interfaz | Recorrido automatizado de formularios Swing para registrar cliente, servicio y reserva |
 
-La comprobación automática de Swing ejecuta componentes sin una ventana visible. El [guion para la sustentación](pruebas-manuales.md) permite repetir la demostración interactiva. No se presenta dicho guion como una sesión manual ya ejecutada.
+La comprobación automática de Swing ejecuta componentes sin una ventana visible. El [guion de aceptación](pruebas-manuales.md) describe el recorrido para la demostración interactiva.

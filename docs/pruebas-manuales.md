@@ -17,4 +17,4 @@ Usar solo datos ficticios. Registrar quién ejecutó cada paso y el resultado ob
 | 11 | Cerrar y abrir desde la misma carpeta | Se mantienen datos y cancelaciones |
 | 12 | Abrir otra instancia sobre los mismos datos | Se impide la escritura simultánea |
 
-Estas acciones constituyen un guion pendiente de ejecución humana. Las pruebas automáticas registradas en CI se documentan por separado.
+Esta secuencia permite comprobar el flujo completo de la aplicación durante la demostración. Los resultados de las pruebas automáticas se detallan en [validacion.md](validacion.md).

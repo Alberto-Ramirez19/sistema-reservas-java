@@ -25,7 +25,7 @@ Recordatorios automáticos, reportes, dashboard, pagos en línea e historial de 
 | Alberto Joel Ramirez | Alberto-Ramirez19 | Configuración, implementación del MVP, propuesta de cambios y correcciones |
 | Juan Cesar Retuerto | U23208480 | Revisión del MVP, ampliación de pruebas, validación e integración |
 
-La atribución de trabajo se respalda con cuentas autenticadas, commits, pull requests y revisiones registradas. Cada integrante debe poder explicar las decisiones y los aportes asociados a su cuenta.
+Las contribuciones y revisiones de ambos integrantes se encuentran en el historial de commits y pull requests.
 
 ## Ejecutar
 
@@ -71,7 +71,6 @@ java '-Dreservas.data=C:\ReservasSimple\datos' -jar build/sistema-reservas.jar
 - [Actividades](https://github.com/Alberto-Ramirez19/sistema-reservas-java/issues).
 - [Pruebas automáticas](https://github.com/Alberto-Ramirez19/sistema-reservas-java/actions).
 - [Matriz de trazabilidad](docs/trazabilidad.md).
-- [Guía para continuar con Juan](docs/continuacion-juan.md).
 
 La [versión estable v1.0.0](https://github.com/Alberto-Ramirez19/sistema-reservas-java/releases/tag/v1.0.0) identifica el código integrado y verificado. Se conservan las ramas de desarrollo y las PR #18 a #21 para comprobar las contribuciones.
 
