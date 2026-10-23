@@ -1,4 +1,4 @@
-# Guía del proyecto y de la sustentación
+# Guía del proyecto
 
 ## Qué resuelve
 
